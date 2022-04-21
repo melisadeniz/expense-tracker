@@ -1,4 +1,4 @@
-import styled, {css} from "styled-components";
+import styled from "styled-components";
 import React from "react";
 
 const Container = styled.div`
@@ -11,10 +11,10 @@ const Container = styled.div`
   box-shadow: 0 3px 6px 0 #555;
 `;
 
-const VRSLogoImage = styled.img`
-  margin-top: 15px;
-  margin-bottom: 28px;
-`;
+// const VRSLogoImage = styled.img`
+//   margin-top: 15px;
+//   margin-bottom: 28px;
+// `;
 
 const MenuImage = styled.img`
   width: 32px;
@@ -30,32 +30,23 @@ const MenuContainer = styled.span`
   margin: 8px 0;
   justify-content: center;
   cursor: pointer;
-  ${(props) =>
-    props.isSelected
-        ? css`
-          opacity: 1;
-        `
-        : css`
-          opacity: 0.5;
-        `}
 `;
-const SideMenuComponent = (props) => {
-    const onMenuClick = (activeMenu) => {
-        props.changeTab(activeMenu)
-    }
-    return (
-        <Container>
-            <MenuContainer isSelected={props.selectedTab === "home"} onClick={() => onMenuClick("home")}>
-                <MenuImage src="/images/wallet.png"/>
-            </MenuContainer>
-            <MenuContainer isSelected={props.selectedTab === "categories"} onClick={() => onMenuClick("categories")}>
-                <MenuImage src="/images/tag.png"/>
-            </MenuContainer>
-            <MenuContainer isSelected={props.selectedTab === "reports"} onClick={() => onMenuClick("reports")}>
-                <MenuImage src="/images/pie-chart.png"/>
-            </MenuContainer>
-        </Container>
-    );
+
+const SideMenu = (props) => {
+  return (
+    <Container>
+      <MenuContainer>
+        <a href="/">
+          <MenuImage src="/images/wallet.png" />
+        </a>
+      </MenuContainer>
+      <MenuContainer>
+        <a href="/reports">
+          <MenuImage src="/images/pie-chart.png" />
+        </a>
+      </MenuContainer>
+    </Container>
+  );
 };
 
-export default SideMenuComponent;
+export default SideMenu;
