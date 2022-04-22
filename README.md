@@ -4,11 +4,12 @@
 
 📌 You can add your any expense or income with the amount and description.  
 📌 You can see the list of expenses and incomes.  
-📌 You can search your expenses or incomes by their descriptions.
-📌 You can see the statistics of expenses and incomes in a Pie chart.
+📌 You can search your expenses or incomes by their descriptions. 
+📌 You can see the statistics of expenses and incomes in a Pie chart.  
 
 ## Technologies 🚀
 - React
 - React Router Dom
 - Styled-Components
 - React Chartjs
+
