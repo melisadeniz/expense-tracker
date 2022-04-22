@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import OverView from "./OverView";
 import Transactions from "./Transactions";
+import Reports from "./Reports";
 
 const Container = styled.div`
   background-color: white;
@@ -16,9 +17,9 @@ const Container = styled.div`
 `;
 
 const Home = (props) => {
-    const [transactions, updateTransaction] = useState([]);
-    const [expense, updateExpense] = useState(0);
-    const [income, updateIncome] = useState(0);
+    const [transactions, setTransaction] = useState([]);
+    const [expense, setExpense] = useState(0);
+    const [income, setIncome] = useState(0);
 
     const calculateBalance = () => {
         let exp = 0;
@@ -28,15 +29,15 @@ const Home = (props) => {
                 ? (exp = exp + payload.amount)
                 : (inc = inc + payload.amount),
         );
-        updateExpense(exp);
-        updateIncome(inc);
+        setExpense(exp);
+        setIncome(inc);
     };
     useEffect(() => calculateBalance(), [transactions]);
 
     const addTransaction = (payload) => {
         const transactionArray = [...transactions];
         transactionArray.push(payload);
-        updateTransaction(transactionArray);
+        setTransaction(transactionArray);
     };
     return (
         <Container>
@@ -50,6 +51,8 @@ const Home = (props) => {
             ) : (
                 ""
             )}
+            <Reports  expense={expense}
+                income={income}/>
         </Container>
     );
 };
